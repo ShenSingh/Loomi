@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            transition: all 0.6s;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            font: 12px 'Open Sans', sans-serif;
+        }
+
+        @keyframes show-popup {
+            from {
+                transform: rotate(45deg) translate(-80px, 40px);
+            }
+            to {
+                transform: rotate(0deg) translate(0px, 0);
+            }
+        }
+
+        .carr {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            margin: 0;
+            margin-top: 100px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            border: 2px solid #DB531E;
+            cursor: pointer;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAGPSURBVHjajNNNi85RGAbw3zwzI/XMmEHeFYmSvJRSYsOWfAHZ+wAWakp8AAs+A5ImKzujUfKapQnZzIaVxzCYGcMzXRbuydO/Wcxdd+ecq3Ouc67rvk9fkqcY8T8mcA3frSIGcLKBfcMaq4wWpjCNjwi2o71aggGcQT92YBybcLTIZ7ABX7G+xlF8qvWgJMs5kuRFksUkDypPJLmd5FSSW0lOJ7lT+GSSt70E7SQ38i+eJDmSZE+SA0n21bi35heTdJMstnrkzOMlfmELhnEVQxjDOlzBDxwv2c/7kvR6sh+Py8QLeFde9GMJ3arQw/JqrNUwtVMVaWMbFnC51pfwGQfrhR1MNgnm8LpuPVsNdr0236xKncdgyZ0eaBD8xhss4hyOlea1hQ1ha0mZwM8mwRKe4VVJ6K9Daj6PD9V0j7DUNBH6sLNcn8efOtytp7cxW82U3j5Yzs1J7ieZSnI3yXDho0nGC7+XZGMSKxEcSjJbDdVJsrvwww18VxKtFf7HTH2wObwvGfClgS/A3wEAjJAlBBKFdqAAAAAASUVORK5CYII=);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .carr:hover {
+            box-shadow: inset 0 0 7px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .carr:hover .popcarr {
+            visibility: visible;
+            opacity: 1;
+            margin-top: 20px;
+            pointer-events: auto;
+        }
+
+        .popcarr {
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 100%;
+            width: 350px;
+            margin-left: -150px;
+            margin-top: 50px;
+            background: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .popcarr:before {
+            position: absolute;
+            content: '';
+            left: 148px;
+            top: -6px;
+            width: 16px;
+            height: 16px;
+            background: #DB531E;
+            transform: rotate(-45deg);
+        }
+
+        .rowcarr {
+            padding: 10px 20px;
+            overflow: hidden;
+        }
+
+        .rowcarr.headercarr {
+            background: #DB531E;
+            border-radius: 3px 3px 0 0;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+
+        .rowcarr.itenscarr {
+            color: #000;
+            font-size: 11px;
+            position: relative;
+        }
+
+        .rowcarr.itenscarr:after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            border: 1px solid #eee;
+            left: 0;
+            top: 97%;
+        }
+
+        .rowcarr.checkout {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .checkout-button {
+            padding: 12px;
+            background: #73C300;
+            text-align: center;
+            border-radius: 3px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background: #00a000;
+        }
+
+        .checkout-button:active {
+            background: #73C300;
+        }
+
+        .rowcarr span:first-child {
+            float: left;
+        }
+
+        .rowcarr span:last-child {
+            float: right;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="carr">
+        <div class="popcarr">
+          <div class="rowcarr headercarr">
+            <span>Produto</span>
+            <span>Quantidade</span>
+          </div>
+          <!--ITENS-->
+          <div class="rowcarr itenscarr">
+            <span>Processador Intel Core i5-4590</span>
+            <span>01</span>
+          </div>
+          <div class="rowcarr itenscarr">
+            <span>Memória DDR4 Kingston HyperX</span>
+            <span>02</span>
+          </div>
+           <div class="rowcarr itenscarr">
+            <span>Watercooler Corsair Hydro</span>
+            <span>01</span>
+          </div>
+          <div class="rowcarr itenscarr">
+            <span>Fonte Corsair CX750</span>
+            <span>01</span>
+          </div>
+          <!--/ITENS-->
+          <div class="rowcarr checkout">
+            <div class="checkout-button">Finalizar</div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
