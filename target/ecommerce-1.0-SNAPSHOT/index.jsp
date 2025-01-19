@@ -38,11 +38,17 @@
     </div>
     
     <div id="rightCont">
-        
+
 
         <div id="userRegLog">
-            <button id="register">REGISTER</button>
-            <button id="login">LOGIN</button>
+            <button id="register" onclick="function clickUserLogin() {
+                window.location.href = 'userLogin.jsp';
+            }
+            clickUserLogin()"> REGISTER</button>
+            <button id="login" onclick="function clickUserLogin() {
+                window.location.href = 'userLogin.jsp';
+            }
+            clickUserLogin()">LOGIN</button>
         </div>
 
         <%-- <div id="cart">

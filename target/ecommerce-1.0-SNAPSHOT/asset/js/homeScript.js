@@ -89,6 +89,10 @@ function render() {
     }
 }
 
+function loding() {
+    
+}
+
 function scaleImage(img, ctx) {
     const canvas = ctx.canvas;
     const hRatio = canvas.width / img.width;
