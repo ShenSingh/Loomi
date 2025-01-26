@@ -27,8 +27,8 @@
 <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
     <div class="app-header header-shadow">
         <div class="app-header__logo">
-            <div class="logo-src" style="background: url(../asset/image/Logos/black-logo.png)!important; width: 100px;!important;">
-                <img src="./asset/image/Logos/black-logo.png" alt="" width="150px">
+            <div class="logo-src" style="background: url(#)!important; width: 100px !important;">
+                <img src="asset/images/14.png" alt="" width="150px">
             </div>
             <div class="header__pane ml-auto">
                 <div>

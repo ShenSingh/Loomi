@@ -68,6 +68,6 @@ public class LoadAllItemsServlet extends HttpServlet {
         }
 
         request.setAttribute("items", items);
-        request.getRequestDispatcher("/admin-portal.jsp#item-section").forward(request, response);
+        request.getRequestDispatcher("./admin_side/admin-portal.jsp#item-section").forward(request, response);
     }
 }

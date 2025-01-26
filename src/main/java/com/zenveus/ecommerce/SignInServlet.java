@@ -68,7 +68,7 @@ public class SignInServlet extends HttpServlet {
                         if (BCrypt.checkpw(password, storedPassword)) {
                             // Successful login
                             if ("Admin".equals(role)) {
-                                response.sendRedirect("admin-portal.jsp");
+                                response.sendRedirect("./admin_side/admin-portal.jsp");
                             } else {
                                 response.sendRedirect("index.jsp");
                             }
