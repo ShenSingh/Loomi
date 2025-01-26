@@ -182,7 +182,7 @@ textarea:hover {
 
 </head>
 <body>
-<div id="nav">
+<div id="nav" style="z-index: 99999 !important;">
 
   <div id="logo">
     <img src="asset/image/Logos/black-logo.png" alt="shopLogo">

@@ -444,7 +444,8 @@
                                         </form>
                                         <form action="${pageContext.request.contextPath}/delete-item-servlet" method="post" style="display:inline;">
                                             <input type="hidden" name="itemId" value="<%= item.getId() %>">
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="
+                                            deleteItem()">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -607,6 +608,28 @@
         if (form) {
             form.submit();
         }
+    }
+</script>
+
+<script>
+    function deleteItem(itemId) {
+        // Create a form element
+        const form = document.createElement('form');
+        form.setAttribute('action', `${pageContext.request.contextPath}/delete-item-servlet`); // Set form action
+        form.setAttribute('method', 'post'); // Set form method
+
+        // Create a hidden input for itemId
+        const input = document.createElement('input');
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('name', 'itemId');
+        input.setAttribute('value', itemId); // Pass the item ID dynamically
+        form.appendChild(input);
+
+        // Append the form to the body
+        document.body.appendChild(form);
+
+        // Submit the form
+        form.submit();
     }
 </script>
 

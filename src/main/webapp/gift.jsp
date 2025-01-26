@@ -20,7 +20,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-<div id="nav">
+<div id="nav" style="z-index: 99999 !important;">
 
   <div id="logo">
     <img src="asset/image/Logos/black-logo.png" alt="shopLogo">
