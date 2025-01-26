@@ -44,13 +44,13 @@ public class SignInServlet extends HttpServlet {
         // Validate input
         if (email == null || email.isEmpty() || !email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
             request.setAttribute("message", "Valid email is required.");
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
             return;
         }
 
         if (password == null || password.isEmpty()) {
             request.setAttribute("message", "Password is required.");
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
             return;
         }
 
@@ -70,28 +70,28 @@ public class SignInServlet extends HttpServlet {
                             if ("Admin".equals(role)) {
                                 response.sendRedirect("admin-portal.jsp");
                             } else {
-                                response.sendRedirect("user-portal.jsp");
+                                response.sendRedirect("index.jsp");
                             }
                         } else {
                             // Invalid password
                             request.setAttribute("message", "Invalid email or password.");
-                            request.getRequestDispatcher("/index.jsp").forward(request, response);
+                            request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
                         }
                     } else {
                         // Email not found
                         request.setAttribute("message", "Invalid email or password.");
-                        request.getRequestDispatcher("/index.jsp").forward(request, response);
+                        request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
                     }
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
                 request.setAttribute("message", "Error occurred: " + e.getMessage());
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
             }
         } catch (SQLException e) {
             e.printStackTrace();
             request.setAttribute("message", "Error occurred: " + e.getMessage());
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
         }
     }
 }

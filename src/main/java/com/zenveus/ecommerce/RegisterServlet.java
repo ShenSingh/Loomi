@@ -41,22 +41,24 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email").trim();
         String password = request.getParameter("password").trim();
 
+        System.out.println(username);
+
         // Validate input
         if (username == null || username.isEmpty()) {
             request.setAttribute("message", "Username is required.");
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
             return;
         }
 
         if (email == null || email.isEmpty() || !email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
             request.setAttribute("message", "Valid email is required.");
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
             return;
         }
 
         if (password == null || password.isEmpty() || password.length() < 8) {
             request.setAttribute("message", "Password is required and must be at least 8 characters long.");
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
             return;
         }
 
@@ -66,7 +68,7 @@ public class RegisterServlet extends HttpServlet {
         try (Connection connection = dataSource.getConnection()) {
             // Insert new user
             String sql;
-            boolean isAdmin = email.endsWith("@cravex.com");
+            boolean isAdmin = email.endsWith("@loomi.com");
             if (isAdmin) {
                 sql = "INSERT INTO Admin (username, email, password) VALUES (?, ?, ?)";
             } else {
@@ -81,28 +83,28 @@ public class RegisterServlet extends HttpServlet {
                 int rows = statement.executeUpdate();
                 if (rows > 0) {
                     if (isAdmin) {
-                        response.sendRedirect("admin-portal.jsp");
+                        response.sendRedirect("./admin_side/admin-portal.jsp");
                     } else {
-                        response.sendRedirect("user-portal.jsp");
+                        response.sendRedirect("index.jsp");
                     }
                 } else {
                     request.setAttribute("message", "Registration failed.");
-                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                    request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
                 }
             } catch (SQLException e) {
                 if (e.getSQLState().equals("23000")) { // SQL state for unique constraint violation
                     request.setAttribute("message", "Email is already registered.");
-                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                    request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
                 } else {
                     e.printStackTrace();
                     request.setAttribute("message", "Error occurred: " + e.getMessage());
-                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                    request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
             request.setAttribute("message", "Error occurred: " + e.getMessage());
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("./user_side/userLogin.jsp").forward(request, response);
         }
     }
 }
