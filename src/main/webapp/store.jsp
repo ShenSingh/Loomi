@@ -114,7 +114,8 @@
                                 <span class="price">
                                   <%= item.getPrice()%>
                                 </span>
-                                    <button class="bs-card-btn">
+                                    <button class="bs-card-btn"
+                                            onclick="addToCart('<%= item.getId() %>', '<%= item.getName() %>', <%= item.getPrice() %>, 'data:image/jpeg;base64,<%= new String(item.getImage()) %>', '<%= item.getDescription() %>', <%= item.getDiscount() %>)">
                                         BUY NOW
                                     </button>
                                 </div>
@@ -164,6 +165,41 @@
         console.log('clicked');
         $('#loadItemsButton').click();
     }
+
+    // Function to handle adding items to the cart
+    function addToCart(itemId, itemName, itemPrice, itemImage, itemDescription, itemDiscount) {
+        // Retrieve the existing cart from localStorage or initialize an empty array
+        let cart = JSON.parse(localStorage.getItem('Cart')) || [];
+
+        // Check if the item already exists in the cart
+        const existingItem = cart.find(item => item.id === itemId);
+
+        if (existingItem) {
+            // If the item is already in the cart, increase the quantity
+            existingItem.quantity += 1;
+
+            // Show a styled success notification
+            toastr.success(`Increased quantity of ${itemName} in your cart!`);
+        } else {
+            // Otherwise, add a new item to the cart
+            cart.push({
+                id: itemId,
+                name: itemName,
+                price: itemPrice,
+                image: itemImage,
+                quantity: 1, // Default quantity is 1
+                description: itemDescription,
+                discount: itemDiscount
+            });
+
+            // Show a styled success notification
+            toastr.success(`${itemName} has been added to your cart!`);
+        }
+
+        // Save the updated cart back to localStorage
+        localStorage.setItem('Cart', JSON.stringify(cart));
+    }
+
 </script>
 </body>
 </html>
