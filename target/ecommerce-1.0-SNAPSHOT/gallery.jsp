@@ -9,12 +9,12 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="../asset/style/style.css">
+  <link rel="stylesheet" type="text/css" href="asset/style/style.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loomi | Gallery</title>
-  <link rel="stylesheet" href="../asset/style/homeStyle.css">
+  <link rel="stylesheet" href="asset/style/homeStyle.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -28,13 +28,13 @@
 <div id="nav">
 
   <div id="logo">
-    <img src="../asset/image/Logos/black-logo.png" alt="shopLogo">
+    <img src="asset/image/Logos/black-logo.png" alt="shopLogo">
   </div>
 
   <div id="menu">
     <ul>
       <div class="menuL">
-        <li><a href="../index.jsp">HOME</a></li>
+        <li><a href="index.jsp">HOME</a></li>
         <li><a href="store.jsp">SHOP</a></li>
         <li><a href="gallery.jsp">GALLERY</a></li>
       </div>

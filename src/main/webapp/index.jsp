@@ -26,13 +26,13 @@
         <ul>
             <div class="menuL">
                 <li><a href="index.jsp">HOME</a></li>
-                <li><a href="user_side/store.jsp">SHOP</a></li>
-                <li><a href="user_side/gallery.jsp">Gallery</a></li>
+                <li><a href="store.jsp">SHOP</a></li>
+                <li><a href="gallery.jsp">Gallery</a></li>
             </div>
             <div class="menuR">
-                <li><a href="user_side/about.jsp">ABOUT</a></li>
-                <li><a href="user_side/contact.jsp">CONTACT</a></li>
-                <li><a href="user_side/gift.jsp">GIFT</a></li>
+                <li><a href="about.jsp">ABOUT</a></li>
+                <li><a href="contact.jsp">CONTACT</a></li>
+                <li><a href="gift.jsp">GIFT</a></li>
             </div>
         </ul>
     </div>
@@ -42,11 +42,11 @@
 
         <div id="userRegLog">
             <button id="register" onclick="function clickUserLogin() {
-                window.location.href = 'user_side/userLogin.jsp';
+                window.location.href = 'userLogin.jsp';
             }
             clickUserLogin()"> REGISTER</button>
             <button id="login" onclick="function clickUserLogin() {
-                window.location.href = 'user_side/userLogin.jsp';
+                window.location.href = 'userLogin.jsp';
             }
             clickUserLogin()">LOGIN</button>
         </div>

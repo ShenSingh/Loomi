@@ -1,3 +1,4 @@
+
 package com.zenveus.ecommerce;
 
 import jakarta.servlet.ServletException;
@@ -39,12 +40,10 @@ public class AddCategoryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String category = req.getParameter("category").trim();
 
-        System.out.println(category);
-
         // Validate input
         if (category == null || category.isEmpty()) {
             req.getSession().setAttribute("message", "Category is required.");
-            resp.sendRedirect(req.getContextPath() + "./admin_side/admin-portal.jsp#item-section");
+            resp.sendRedirect(req.getContextPath() + "/item.jsp");
             return;
         }
 
@@ -56,7 +55,7 @@ public class AddCategoryServlet extends HttpServlet {
                 try (ResultSet resultSet = checkStatement.executeQuery()) {
                     if (resultSet.next() && resultSet.getInt(1) > 0) {
                         req.getSession().setAttribute("message", "Category already exists.");
-                        resp.sendRedirect(req.getContextPath() + "./admin_side/admin-portal.jsp#item-section");
+                        resp.sendRedirect(req.getContextPath() + "/item.jsp");
                         return;
                     }
                 }
@@ -71,12 +70,12 @@ public class AddCategoryServlet extends HttpServlet {
         } catch (Exception e) {
             logger.severe("Failed to add category: " + e.getMessage());
             req.getSession().setAttribute("message", "Failed to add category.");
-            resp.sendRedirect(req.getContextPath() + "./admin_side/admin-portal.jsp#item-section");
+            resp.sendRedirect(req.getContextPath() + "/item.jsp");
             return;
         }
 
         req.getSession().setAttribute("message", "Category added successfully.");
-        resp.sendRedirect(req.getContextPath() + "./admin_side/admin-portal.jsp#item-section");
+        resp.sendRedirect(req.getContextPath() + "/item.jsp");
     }
 
 

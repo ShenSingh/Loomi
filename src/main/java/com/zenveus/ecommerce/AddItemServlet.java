@@ -83,6 +83,6 @@ public class AddItemServlet extends HttpServlet {
         }
 
         System.out.println("Item saved successfully");
-        response.sendRedirect(request.getContextPath() + "./admin_side/admin-portal.jsp#item-section");
+        response.sendRedirect(request.getContextPath() + "/admin-portal.jsp#item-section");
     }
 }
